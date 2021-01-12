@@ -1,0 +1,16 @@
+Column
+AF
+CLNSIG
+ExonicFunc.refGene
+FATHMM_score
+Func.refGene
+M-CAP_score
+MetaLR_score
+MutPred_score
+MutationAssessor_score
+PROVEAN_score
+SIFT_score
+fathmm-MKL_coding_score
+phyloP100way_vertebrate
+CLNDN_dicotomize
+Type
