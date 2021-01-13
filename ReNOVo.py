@@ -101,15 +101,10 @@ for file_name in onlyfiles:
         command = "perl " + args.annovar + "/table_annovar.pl " + args.path + "/" + file_name + " " + args.annovar + "/humandb/ --buildver hg19 --out " + args.path + "/temporary/" + file_name + " --protocol refGene,ensGene,avsnp150,gnomad211_exome,dbnsfp35c,intervar_20180118,clinvar_20200316 --remove --operation g,g,f,f,f,f,f --nastring ."
         print ("avinput file! Launching ANNOVAR!\n")
     else:
-        print (file_name + " is not a VCF or av input... skipped... \n")
+        print (file_name + " is not a VCF or av input... skipped...")
         continue
 
     # Running Annovar!
-
-    # empty folder or folder with no VCFs and av input files
-    if command == "":
-        print ("No VCFs or av inputs!")
-        sys.exit()
     
     print ("ANNOVAR Command: " + command + "\n")
     process = sp.Popen(command, shell=True)
@@ -146,10 +141,7 @@ for file_name in onlyfiles:
     # output
     print ("Output generated! in " + output_file_name + "\n")
 
-#if command == "": # TODO IOError
-#    raise IOError
-
-#remove temporary directory (and all its content)
+# remove temporary directory (and all its content)
 
 dir_to_remove = args.path + "/temporary/"
 try:
@@ -158,6 +150,19 @@ except OSError as e:
     print("Error: %s : %s" % (dir_to_remove, e.strerror))
 
 print ("removed " + dir_to_remove + "...")
+
+# remove renovo output directory (if empty: program crash o empty input directory) 
+
+dir_to_remove = args.path + "/ReNOVo_output/"
+
+if len(os.listdir(dir_to_remove)) == 0:
+    try:
+        shutil.rmtree(dir_to_remove)
+    except OSError as e:
+        print("Error: %s : %s" % (dir_to_remove, e.strerror))
+
+    print ("removed " + dir_to_remove + "...")
+
 
 # endMessage
 print (endMessage)

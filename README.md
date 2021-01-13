@@ -21,7 +21,7 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
 
 ## **Usage**
 
-  ReNOVo.py (version 0.2 beta)
+  ReNOVo.py (version 1.0)
 
   usage: ReNOVo.py [-h] -p, --path PATH -a, --annovar ANNOVAR
 
