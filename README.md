@@ -66,7 +66,7 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
 
 ## **Web Server**
 
-  https://bioinfo.ieo.it/shiny/app/renovo
+  https://bioserver.ieo.it/shiny/app/renovo
 
 ## License
 
