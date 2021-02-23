@@ -53,6 +53,9 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
   ```
   python -m pip install scikit-learn==0.20.3
   pip install pandas
+  pip install matplotlib
+  pip install seaborn
+  pip install argparse
   ```
 
   **Troubleshooting:**
