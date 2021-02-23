@@ -10,7 +10,6 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
   * **RF_model.pkl**: trained model of Random Forest
   * **variables.txt**: the set of variables that are used to run the small RF
   * **ordered_cols.txt**: the total set of variables after one-hot-encoding: each level of variable “Type” is considered. Columns are in the correct order to perform new predictions with RF
-  * **trainig_set.tar.gz**: compressed training set of the RF model, use this file as "-t" argument for rf_trainer.py
   * **columns.txt**: file cotaining the columns of interest of the training set, use this file as "-c" argument for rf_trainer.py
 
 ## **“Scripts” folder**
@@ -73,6 +72,10 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
 ## **Web Server**
 
   https://bioserver.ieo.it/shiny/app/renovo
+
+## Data storage
+
+**Training set** https://drive.google.com/file/d/13G6Dn-YzZpS6PK-bhIu_fS1eWR-sQW5T/view?usp=sharing
 
 ## License
 
