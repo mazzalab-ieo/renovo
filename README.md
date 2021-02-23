@@ -20,7 +20,7 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
 
   * **Renovo_implementation.py**  In this file predictions with RF are performed. The model is already trained, some final preprocessing is done, such as elimination of useless columns and reordering of the useful ones. RF is run and the columns with prediction and with score are saved. It takes as input the files “input_RF.tab” (coming from preprocessing.R), the files with column names “variables.txt” and “ordered_cols.txt”, the file with parameters of the trained model: “RF_model.pkl”.  The output is “output_RF”, that is the input_RF with added the columns with RF prediction and score. NOTE: this output_RF has the NA imputed, **IT IS NOT** the original one.
   
-  * **rf_trainer.py** This script create the random forest model using a training set and a file containing the column of interest
+  * **renovo_optim.py** This script create the random forest model using a training set and a file containing the column of interest
 ## **Usage**
 
   ReNOVo.py (version 1.0)
