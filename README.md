@@ -22,7 +22,14 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
   
   * **renovo_optim.py** This script create the random forest model using a training set and a file containing the column of interest
 ## **Usage**
-
+  
+  command:
+  ```
+  ./ReNOVo.py -a path/to/annovar -p path/to/VCFs/AVinputs
+  ```
+  
+  help message:
+  ```
   ReNOVo.py (version 1.0)
 
   usage: ReNOVo.py [-h] -p, --path PATH -a, --annovar ANNOVAR
@@ -35,7 +42,7 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
     -h, --help         show this help message and exit
     -p, --path PATH        the path to VCFs/AVinputs directory
     -a, --annovar ANNOVAR  the path to ANNOVAR directory
-
+   ```
 
 
 ## **Requirements and Set-up:**
@@ -68,6 +75,8 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
   ```
   Rscript -e "install.packages(c('openxlsx','tidyverse','readxl'), repos='http://cran.us.r-project.org')"
   ```
+  
+  **Remember to change the interpreter (python/Rscript) in these scripts: ReNOVo.py, preprocessing.R, Renovo_implementation.py**
 
 ## **Web Server**
 
