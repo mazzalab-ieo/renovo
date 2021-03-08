@@ -1,4 +1,4 @@
-#!/path/to/your/env/bin <-- CHANGE WITH YOUR INTERPRETER!
+#!/path/to/your/env/bin/python <-- CHANGE WITH YOUR INTERPRETER!
 #coding=utf-8
 
 # Authors: Emanuele Bonetti (emanuele.bonetti@ieo.it), Giulia Tini (giulia.tini@ieo.it)
