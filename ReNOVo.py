@@ -1,4 +1,4 @@
-#!/path/to/your/env/bin <-- CHANGE WITH YOUR INTERPRETER!
+#!/path/to/your/env/bin/python <-- CHANGE WITH YOUR INTERPRETER!
 #coding=utf-8
 
 # Authors: Emanuele Bonetti (emanuele.bonetti@ieo.it), Giulia Tini (giulia.tini@ieo.it)
@@ -122,7 +122,7 @@ for file_name in onlyfiles:
         print ("Error: check scripts folder, if you want to run ReNOVo from any position change the scripts path with the full path")
         sys.exit()
 
-    command = 'Rscript ' + scripts_folder + 'preprocessing.R ' + path_to_an_out + ' ' + path_to_temp
+    command = './' + scripts_folder + 'preprocessing.R ' + path_to_an_out + ' ' + path_to_temp
     process = sp.Popen(command, shell=True)
     process.wait()
     print ("DONE!\n")
@@ -133,7 +133,7 @@ for file_name in onlyfiles:
     print ("ReNOVo implementation... ")
     path_to_Renovo_implementation_input =  args.path + "/temporary/input_RF.tab"
     output_file_name = args.path + "/ReNOVo_output/" + file_name.strip().split(".")[0] + "_ReNOVo_and_ANNOVAR_implemented.txt"
-    command = "python " + scripts_folder + "Renovo_implementation.py " + path_to_Renovo_implementation_input + " " + path_to_an_out + " " + output_file_name
+    command = "./" + scripts_folder + "Renovo_implementation.py " + path_to_Renovo_implementation_input + " " + path_to_an_out + " " + output_file_name
     process = sp.Popen(command, shell=True)
     process.wait()
     print ("DONE!\n")
