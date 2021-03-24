@@ -92,4 +92,12 @@ ReNOVo is a machine learning based software that classifies variants as pathogen
 
 ## Reference
 
-  ReNOVo is currently under review.
+  Valentina Favalli, Giulia Tini, Emanuele Bonetti, Gianluca Vozza, Alessandro Guida, Sara Gandini, Pier Giuseppe Pelicci, Luca Mazzarella,
+  Machine learning-based reclassification of germline variants of unknown significance: The RENOVO algorithm,
+  The American Journal of Human Genetics,
+  2021,
+  ,
+  ISSN 0002-9297,
+  https://doi.org/10.1016/j.ajhg.2021.03.010.
+  (https://www.sciencedirect.com/science/article/pii/S000292972100094X)
+  
