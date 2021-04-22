@@ -57,18 +57,18 @@ for prob in probs:
     if float(prob) < 0.0092:
         RENOVO_Class.append("HP Benign")
     elif float(prob) >= 0.0092 and float(prob) < 0.235:
-        RENOVO_Class.append("Benign")
+        RENOVO_Class.append("IP Benign")
     elif float(prob) >= 0.235 and float(prob) < 0.5:
         RENOVO_Class.append("LP Benign")
     elif float(prob) >= 0.5 and float(prob) < 0.7849:
         RENOVO_Class.append("LP Pathogenic")
     elif float(prob) >= 0.7849 and float(prob) < 0.8890:
-        RENOVO_Class.append("Pathogenic")
+        RENOVO_Class.append("IP Pathogenic")
     elif float(prob) >= 0.8890:
         RENOVO_Class.append("HP Pathogenic")
 
-original_input["RENOVO_Class"]= RENOVO_Class
-original_input["Probability_1_RF"]=probs
+original_input["RENOVO_Class"]=RENOVO_Class
+original_input["PL_score"]=probs
 
 # write table finale
 original_input.to_csv(sys.argv[3], sep = "\t", na_rep = ".", index = False)
