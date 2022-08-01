@@ -1,6 +1,12 @@
 #!/path/to/your/env/bin/Rscript <-- CHANGE WITH YOUR INTERPRETER!
 #### fix the dataset, with median to reconstruct the NA
 
+# get directory of the script
+initial.options <- commandArgs(trailingOnly = FALSE)
+file.arg.name <- "--file="
+script.name <- sub(file.arg.name, "", initial.options[grep(file.arg.name, initial.options)])
+script_dir <- dirname(script.name)
+
 args <- commandArgs(trailingOnly=TRUE)
 
 path <- args[1]
@@ -26,8 +32,8 @@ library(readxl)
 #library(vroom) # TODO
 
 #upload functions, files
-source("./Scripts/FixData_median.R")
-median<- read_excel("./Files/median_correct.xlsx")
+source(paste0(script_dir, "/FixData_median.R"))
+median<- read_excel(paste0(script_dir, "/../Files/median_correct.xlsx"))
 
 #paths
 
