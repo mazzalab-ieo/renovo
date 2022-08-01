@@ -134,8 +134,7 @@ try:
                 + " -downdb -webfrom annovar "
                 + db
                 + " "
-                + args.annovar
-                + "/humandb/"
+                + args.database
             )
             process = sp.Popen(command, shell=True)
             process.wait()
@@ -160,8 +159,8 @@ for file_name in onlyfiles:
             + "/"
             + file_name
             + " "
-            + args.annovar
-            + "/humandb/ --buildver "
+            + args.database
+            + " --buildver "
             + args.build
             + " --out "
             + args.path
@@ -179,8 +178,8 @@ for file_name in onlyfiles:
             + "/"
             + file_name
             + " "
-            + args.annovar
-            + "/humandb/ --buildver "
+            + args.database
+            + " --buildver "
             + args.build
             + " --out "
             + args.path
