@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 from time import time
 import sys
+import os
 #from scipy.stats import randint as sp_randint
 #from sklearn.model_selection import train_test_split
 #from sklearn.metrics import accuracy_score
@@ -14,9 +15,10 @@ from sklearn.externals import joblib
 #from sklearn.model_selection import cross_val_score
 
 # files upload
-rf = joblib.load("./Files/RF_model.pkl")
-keep = pd.read_csv("./Files/variables.txt",sep="\t")
-col_fin = pd.read_csv("./Files/ordered_cols.txt",sep="\t")
+basedir = os.path.dirname(__file__)
+rf = joblib.load(f"{basedir}/../Files/RF_model.pkl")
+keep = pd.read_csv(f"{basedir}/../Files/variables.txt",sep="\t")
+col_fin = pd.read_csv(f"{basedir}/../Files/ordered_cols.txt",sep="\t")
 
 input_RF = pd.read_csv(sys.argv[1], sep="\t", na_values=".")
 
