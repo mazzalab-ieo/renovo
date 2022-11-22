@@ -39,12 +39,14 @@ FixData_median<-function(df,subs)
   
   for (t in unique(df_1$Type))
   {
-    (print(t))
     k<-which(subs$Type==t)
-    for (el in scores)
-    {
-      print(el)
-      df_1[which(is.na(df_1[,el]) & df_1$Type==t),el]<-subs[k,el]
+    if(length(k)>0){
+	for (el in scores)
+	{
+	  df_1[which(is.na(df_1[,el]) & df_1$Type==t),el]<-subs[k,el]
+	}
+    }else{
+	df_1[which(is.na(df_1[,el]) & df_1$Type==t),el] = NA
     }
   }
   

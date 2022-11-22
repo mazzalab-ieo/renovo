@@ -32,6 +32,9 @@ input_RF = pd.read_csv(sys.argv[1], sep="\t", na_values=".")
 data = input_RF[keep["Column"]]
 data = data.drop(columns="CLNSIG",axis=1)
 data = data.drop(columns=["ExonicFunc.refGene","Func.refGene"],axis=1)
+index_na = pd.isnull(data).any(1) # rows for which median value has not been calculated are removed
+index_na = index_na[index_na].index.values
+data = data.dropna()
 # perform one-hot-encoding
 data_2 = pd.get_dummies(data)
 
@@ -54,8 +57,16 @@ original_input = pd.read_csv(sys.argv[2], sep="\t", na_values=".") #add predicti
 
 # convert predictions to HPP-P-LPP-LPB-B-HPB
 RENOVO_Class = []
+final_probs = [] #probs with insertion of missing values (NAN)
 
+iidx = 0
 for prob in probs:
+    final_probs.append(prob)
+    # reinsertion of NA values
+    if iidx in index_na:
+        RENOVO_Class.append("NA")
+        iidx+=1
+        final_probs.append("NA")
     if float(prob) < 0.0092:
         RENOVO_Class.append("HP Benign")
     elif float(prob) >= 0.0092 and float(prob) < 0.235:
@@ -68,9 +79,10 @@ for prob in probs:
         RENOVO_Class.append("IP Pathogenic")
     elif float(prob) >= 0.8890:
         RENOVO_Class.append("HP Pathogenic")
+    iidx+=1
 
 original_input["RENOVO_Class"]=RENOVO_Class
-original_input["PL_score"]=probs
+original_input["PL_score"] = final_probs
 
 # write table finale
 original_input.to_csv(sys.argv[3], sep = "\t", na_rep = ".", index = False)
