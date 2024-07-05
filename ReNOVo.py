@@ -68,7 +68,7 @@ args = parser.parse_args()
 if args.database is None:
     args.database = f"{args.annovar}/humandb"
 
-scripts_folder = f"{os.path.dirname(__file__)}/Scripts/"
+scripts_folder = f"{os.path.dirname(__file__)}Scripts/"
 
 # temporary folder creation
 if not os.path.exists(args.path + "/temporary"):
