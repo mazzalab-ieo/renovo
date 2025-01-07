@@ -22,8 +22,6 @@ col_fin = pd.read_csv(f"{basedir}/../Files/ordered_cols.txt",sep="\t")
 
 input_RF = pd.read_csv(sys.argv[1], sep="\t", na_values=".")
 
-
-
 ### fix new variables
 #keep.loc[-1] = "Type"
 #keep = keep.reset_index(drop=True)
@@ -46,7 +44,6 @@ for col in toadd:
     data_2[col]=0
 
 data_2 = data_2[col_fin["Column"]]
-
 
 # make predictions with RF
 #predictions= rf.predict(data_2)
@@ -81,6 +78,20 @@ for prob in probs:
         RENOVO_Class.append("HP Pathogenic")
     iidx+=1
 
+input_RF["RENOVO_Class"] = RENOVO_Class
+input_RF["PL_score"] = final_probs
+
+# Create a subset of right_df with the key columns + the last two columns
+input_RF_subset = input_RF[["Chr", "Start", "End", "Ref", "Alt","RENOVO_Class","PL_score"]]
+
+# Merge using a left join on the five key columns
+merged_df = pd.merge(original_input, input_RF_subset, on=["Chr", "Start", "End", "Ref", "Alt"], how="left")
+
+# Replace all NaN with "."
+merged_df.fillna(".", inplace=True)
+
+# write table finale
+merged_df.to_csv(sys.argv[3], sep = "\t", na_rep = ".", index = False)
 original_input["RENOVO_Class"]=RENOVO_Class
 original_input["PL_score"] = final_probs
 
