@@ -92,8 +92,3 @@ merged_df.fillna(".", inplace=True)
 
 # write table finale
 merged_df.to_csv(sys.argv[3], sep = "\t", na_rep = ".", index = False)
-original_input["RENOVO_Class"]=RENOVO_Class
-original_input["PL_score"] = final_probs
-
-# write table finale
-original_input.to_csv(sys.argv[3], sep = "\t", na_rep = ".", index = False)
