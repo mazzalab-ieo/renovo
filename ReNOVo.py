@@ -166,7 +166,7 @@ for file_name in onlyfiles:
             + args.path
             + "/temporary/"
             + file_name
-            + " --protocol refGene,ensGene,avsnp150,gnomad211_exome,dbnsfp35c,intervar_20180118,clinvar_20200316 --remove --operation g,g,f,f,f,f,f --nastring . --vcfinput"
+            + " --protocol refGene,ensGene,avsnp150,gnomad211_exome,dbnsfp35c,intervar_20180118," + args.clinvar + " --remove --operation g,g,f,f,f,f,f --nastring . --vcfinput"
         )
         print("VCF file! Launching ANNOVAR!\n")
     elif "avinput" in file_name:
@@ -185,7 +185,7 @@ for file_name in onlyfiles:
             + args.path
             + "/temporary/"
             + file_name
-            + " --protocol refGene,ensGene,avsnp150,gnomad211_exome,dbnsfp35c,intervar_20180118,clinvar_20200316 --remove --operation g,g,f,f,f,f,f --nastring ."
+            + " --protocol refGene,ensGene,avsnp150,gnomad211_exome,dbnsfp35c,intervar_20180118," + args.clinvar + " --remove --operation g,g,f,f,f,f,f --nastring . --vcfinput"
         )
         print("avinput file! Launching ANNOVAR!\n")
     else:
